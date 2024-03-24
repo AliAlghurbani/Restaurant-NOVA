@@ -1,0 +1,643 @@
+@import url('https://fonts.googleapis.com/css2?family=Aladin&family=Kalam:wght@300;400;700&display=swap');
+
+/* whole page */
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Kalam", cursive;
+}
+
+/*pages header */
+header {
+    width: 100%;
+    height: 100px;
+    margin: 0;
+    padding: 0;
+    background-color: #F0980E;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* logos */
+#logopic {
+    height: 100px;
+    width: 100px;
+    margin-left: 40px;
+}
+
+#logo2pic {
+    height: 75px;
+    width: 150px;
+}
+
+/* navigation bar */
+
+nav {
+
+    background-color: #F0980E;
+    height: auto;
+    width: auto;
+    align-items: center;
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.ulnav {
+    list-style-type: none;
+    margin: 20px 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 700;
+
+}
+
+.linav {
+    margin: 0.2em;
+    padding: 0.5em;
+}
+
+/* socials nav */
+.ulsocials {
+    list-style-type: none;
+    background-color: #F0980E;
+    height: auto;
+    width: auto;
+    margin: 20px 0;
+    font-size: 22px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.lisocials {
+    margin: 0.5em;
+    padding: 0.2em;
+}
+
+/*links styling*/
+
+a {
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s linear;
+}
+
+a:hover {
+    color: #097041;
+}
+
+/*pages title */
+
+.titlecontainer {
+    color: white;
+    background-color: #097041;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 3em 0;
+}
+
+.title {
+    display: grid;
+    grid-template-columns: repeat(7, 6fr);
+    align-items: center;
+    column-gap: 1rem;
+    text-align: center;
+}
+
+
+.title::before,
+.title::after {
+    content: "";
+    background-color: white;
+    height: 1px;
+    display: block;
+}
+
+.title::before {
+    grid-column: 1 / 4;
+}
+
+.title::after {
+    grid-column: 5 / 8;
+}
+
+/*Home page*/
+
+.main0 {
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.342), rgba(0, 0, 0, 0.342)), url(mainpage.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: space-around;
+}
+
+.homepageTitle {
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    margin: auto;
+    font-size: 26px;
+}
+
+/* recipes page */
+.main1 {
+    background-color: #097041;
+    height: auto;
+    width: auto;
+    padding: 50px 150px;
+}
+
+/* recipes container */
+
+.recepten {
+    background-color: #097041;
+    height: auto;
+    width: auto;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+/* recipe box and details */
+
+.recept {
+    background-color: white;
+    height: 400px;
+    width: 350px;
+    padding: 0;
+    margin: 15px;
+    transition: 0.1s;
+    border-radius: 12px;
+    position: relative;
+
+}
+
+.recept:hover {
+    transform: scale(1.01);
+    transition: 0.1s;
+}
+
+.receptImage {
+    width: 350px;
+    height: 200px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.menunaam {
+    padding: 0.3em;
+    height: 22px;
+    width: auto;
+    position: absolute;
+    background-color: white;
+    top: 180px;
+    left: 0;
+    border-top-right-radius: 10px;
+    color: #F0980E;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.receptDetails {
+    margin: 5px;
+    padding: 0 3px;
+}
+
+.receptdetailstitle {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 24px;
+    color: #13482E;
+}
+
+.receptdetailstitle:hover {
+    color: #F0980E;
+}
+
+.receptDetailsarticle {
+    max-width: 322px;
+    max-height: 53px;
+    margin: 10px 0 55px 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 14px;
+}
+
+.receptDetails p {
+    bottom: 15px;
+    padding: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #097041;
+}
+
+/*footer*/
+
+footer {
+    background-color: #F0980E;
+    color: white;
+    margin: 0cm;
+    padding: 2em 10em;
+    height: auto;
+    width: auto;
+}
+
+/*footer nav*/
+
+.ulfooter {
+    list-style-type: none;
+    font-size: 22px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 700;
+
+}
+
+.lifooter {
+    list-style-type: none;
+    margin: 3px 0;
+    padding: 2px;
+    font-size: 14px;
+    position: relative;
+}
+
+/*footer details */
+
+#logofooter {
+    height: 100px;
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.footerdetails {
+    margin: 0.5em;
+    padding: 0.5em;
+    color: #097041;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+
+}
+
+.footerdetails h1 {
+    font-size: 22px;
+    margin: 0.5em;
+
+}
+
+/*details page*/
+
+.main2 {
+    background-color: #3a6088;
+    height: auto;
+    width: auto;
+    padding: 0;
+}
+
+.top {
+    height: auto;
+    width: 100%;
+    display: flex;
+    background-color: aliceblue;
+}
+
+#image1 {
+    width: 50%;
+    height: 575px;
+}
+
+.topdetails {
+    padding: 2em;
+    min-width: 50%;
+    height: 575px;
+    font-size: 26px;
+    background-color: #097041;
+    color: white;
+}
+
+.productnaam {
+    min-height: 70%;
+    padding: 3em 0;
+    width: auto;
+    text-align: center;
+}
+
+.productnaam p {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.material-symbols-outlined {
+    font-size: 20px;
+}
+
+.extradetails {
+    background-color: #13482E;
+    border-radius: 12px;
+    width: 100%;
+    min-height: 30%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.inkoop {
+    margin: auto;
+    text-align: center;
+}
+
+.inkoop p {
+    font-size: 14px;
+}
+
+.inkoop h1 {
+    font-size: 36px;
+}
+
+.verkoop {
+    margin: auto;
+    text-align: center;
+}
+
+.verkoop p {
+    font-size: 14px;
+}
+
+.verkoop h1 {
+    font-size: 36px;
+}
+
+.serves {
+    margin: auto;
+    text-align: center;
+}
+
+.serves p {
+    font-size: 14px;
+}
+
+.serves h1 {
+    font-size: 36px;
+}
+
+/* inloggen button */
+.inloggenButton {
+    display: inline-block;
+    background-color: #13482E;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    margin: 25px;
+    padding: 12px 24px;
+    border-radius: 20px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.inloggenButton:hover {
+    color: #138a54;
+    transition: 0.2s ease-out, color 0.2s ease-out;
+}
+
+/*registration / logging in*/
+
+/* 
+.regislink {
+    font-size: 12px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s linear;
+}
+
+.regislink:hover {
+    color: rgb(227, 193, 0);
+}
+
+.regismain {
+    width: 100%;
+    background-color: #283d54;
+    padding: 100px;
+}
+
+.regiscontainer {
+    width: 60%;
+    border-radius: 20px;
+}
+
+.regisform {
+    background-color: #3a6088;
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: auto;
+    margin-right: auto;
+}
+
+.inloggensul {
+    list-style: none;
+    margin: 5px;
+}
+
+
+.regisul {
+    list-style: none;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.regisli {
+    margin: 10px;
+}
+
+.searchInput {
+    appearance: none;
+    padding: 10px 16px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 6px;
+    font-size: 1.1em;
+}
+
+label {
+    font-size: 0.6em;
+    color: rgb(227, 193, 0);
+    padding-left: 16px;
+    text-transform: uppercase;
+}
+
+input:focus {
+    background-color: white;
+    color: black;
+}
+
+button {
+    appearance: none;
+    border: 1px solid transparent;
+    padding: 10px 16px;
+    border-radius: 20px;
+    margin-top: 20px;
+    background-color: #F0980E;
+    color: white;
+}
+
+button:hover {
+    background-color: #042617;
+    transition: background-color 0.2s ease-out, color 0.2s ease-out;
+} */
+
+/*error*/
+.error {
+    background-color: #ce6565;
+    color: white;
+    padding: 10px;
+    width: 95%;
+    border-radius: 5px;
+}
+
+/*dashheader*/
+
+.dashheader {
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    margin: auto;
+    font-size: 50px;
+}
+
+/*dashboard*/
+
+.dashbody {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.342), rgba(0, 0, 0, 0.342)), url(hompage.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 41em;
+    width: auto;
+    text-align: center;
+    padding: 16em;
+}
+
+/* dash buttons*/
+
+.dashButton {
+    display: inline-block;
+    background-color: rgb(227, 193, 0);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    margin: 20px;
+    padding: 12px 24px;
+    border-radius: 20px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.dashButton:hover {
+    background-color: #283d54;
+    color: white;
+    transition: background-color 0.2s ease-out, color 0.2s ease-out;
+}
+
+/*filterandsearch*/
+
+.filterandsearch {
+    display: flex;
+    flex-direction: row;
+    margin: 30px;
+}
+
+.filter {
+    display: inline-block;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.search {
+    display: inline-block;
+    margin: 20px;
+    margin-top: 25px;
+    border-radius: 10px;
+}
+
+.searchInput {
+    appearance: none;
+    padding: 10px 16px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 6px;
+    font-size: 1.1em;
+}
+
+
+select {
+    padding: 8px;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.FSbtn {
+    appearance: none;
+    background-color: #F0980E;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    margin: 15px;
+    padding: 12px 24px;
+    border-radius: 20px;
+}
+
+.FSbtn:hover {
+    background-color: #042617;
+    transition: background-color 0.2s ease-out, color 0.2s ease-out;
+}
+
+/*ireland page */
+
+.main3 {
+    background-color: #097041;
+    height: auto;
+    width: auto;
+    padding: 5vh 15%;
+}
+
+.irelandContent {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.irelandContent p {
+    width: 40%;
+    height: auto;
+    padding: 1vh;
+    margin: 4vh;
+    color: white;
+    font-size: 17px;
+}
+
+.irelandContent img {
+    width: 40%;
+    height: auto;
+    padding: 1vh;
+    margin: 4vh;
+    border-radius: 20px;
+}
