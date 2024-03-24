@@ -74,6 +74,26 @@ nav {
     justify-content: space-between;
 }
 
+/* inloggen button */
+.inloggenButton {
+    display: inline-block;
+    background-color: #13482E;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    margin: 25px;
+    padding: 12px 24px;
+    border-radius: 20px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.inloggenButton:hover {
+    color: #138a54;
+    transition: 0.2s ease-out, color 0.2s ease-out;
+}
+
 .lisocials {
     margin: 0.5em;
     padding: 0.2em;
@@ -392,166 +412,6 @@ footer {
     font-size: 36px;
 }
 
-/* inloggen button */
-.inloggenButton {
-    display: inline-block;
-    background-color: #13482E;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    margin: 25px;
-    padding: 12px 24px;
-    border-radius: 20px;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
-}
-
-.inloggenButton:hover {
-    color: #138a54;
-    transition: 0.2s ease-out, color 0.2s ease-out;
-}
-
-/*registration / logging in*/
-
-/* 
-.regislink {
-    font-size: 12px;
-    text-decoration: none;
-    color: white;
-    transition: all 0.3s linear;
-}
-
-.regislink:hover {
-    color: rgb(227, 193, 0);
-}
-
-.regismain {
-    width: 100%;
-    background-color: #283d54;
-    padding: 100px;
-}
-
-.regiscontainer {
-    width: 60%;
-    border-radius: 20px;
-}
-
-.regisform {
-    background-color: #3a6088;
-    padding: 20px;
-    border-radius: 20px;
-    margin-top: auto;
-    margin-right: auto;
-}
-
-.inloggensul {
-    list-style: none;
-    margin: 5px;
-}
-
-
-.regisul {
-    list-style: none;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-.regisli {
-    margin: 10px;
-}
-
-.searchInput {
-    appearance: none;
-    padding: 10px 16px;
-    border-radius: 10px;
-    border: none;
-    margin-top: 6px;
-    font-size: 1.1em;
-}
-
-label {
-    font-size: 0.6em;
-    color: rgb(227, 193, 0);
-    padding-left: 16px;
-    text-transform: uppercase;
-}
-
-input:focus {
-    background-color: white;
-    color: black;
-}
-
-button {
-    appearance: none;
-    border: 1px solid transparent;
-    padding: 10px 16px;
-    border-radius: 20px;
-    margin-top: 20px;
-    background-color: #F0980E;
-    color: white;
-}
-
-button:hover {
-    background-color: #042617;
-    transition: background-color 0.2s ease-out, color 0.2s ease-out;
-} */
-
-/*error*/
-.error {
-    background-color: #ce6565;
-    color: white;
-    padding: 10px;
-    width: 95%;
-    border-radius: 5px;
-}
-
-/*dashheader*/
-
-.dashheader {
-    text-align: center;
-    vertical-align: middle;
-    color: white;
-    margin: auto;
-    font-size: 50px;
-}
-
-/*dashboard*/
-
-.dashbody {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.342), rgba(0, 0, 0, 0.342)), url(hompage.jpg);
-    background-position: center;
-    background-size: cover;
-    height: 41em;
-    width: auto;
-    text-align: center;
-    padding: 16em;
-}
-
-/* dash buttons*/
-
-.dashButton {
-    display: inline-block;
-    background-color: rgb(227, 193, 0);
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    margin: 20px;
-    padding: 12px 24px;
-    border-radius: 20px;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
-}
-
-.dashButton:hover {
-    background-color: #283d54;
-    color: white;
-    transition: background-color 0.2s ease-out, color 0.2s ease-out;
-}
-
 /*filterandsearch*/
 
 .filterandsearch {
@@ -640,4 +500,148 @@ select {
     padding: 1vh;
     margin: 4vh;
     border-radius: 20px;
+}
+
+/*registration / logging in*/
+
+
+.regislink {
+    font-size: 12px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s linear;
+}
+
+.regislink:hover {
+    color: #F0980E;
+}
+
+.regismain {
+    width: 100%;
+    background-color: #042617;
+    padding: 100px;
+}
+
+.regiscontainer {
+    width: 60%;
+    border-radius: 20px;
+}
+
+.regisform {
+    background-color: #097041;
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: auto;
+    margin-right: auto;
+}
+
+.inloggensul {
+    list-style: none;
+    margin: 5px;
+}
+
+
+.regisul {
+    list-style: none;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.regisli {
+    margin: 10px 0;
+}
+
+.searchInput {
+    appearance: none;
+    padding: 10px 16px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 6px;
+    font-size: 1.1em;
+}
+
+.regisform label {
+    font-size: 14px;
+    color: #F0980E;
+    text-transform: uppercase;
+}
+
+
+.regisform input {
+    appearance: none;
+    padding: 10px 16px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 6px;
+    font-size: 14px;
+}
+
+.regisform button {
+    appearance: none;
+    border: 1px solid transparent;
+    padding: 10px 16px;
+    border-radius: 20px;
+    margin-top: 20px;
+    background-color: #F0980E;
+    color: white;
+}
+
+.regisform button:hover {
+    background-color: #042617;
+    transition: background-color 0.2s ease-out, color 0.2s ease-out;
+}
+
+/*error*/
+.error {
+    background-color: #ce6565;
+    color: white;
+    padding: 10px;
+    width: 95%;
+    border-radius: 5px;
+}
+
+/*dashheader*/
+
+.dashheader {
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    margin: auto;
+    font-size: 50px;
+}
+
+/*dashboard*/
+
+.dashbody {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.342), rgba(0, 0, 0, 0.342)), url(hompage.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 41em;
+    width: auto;
+    text-align: center;
+    padding: 16em;
+}
+
+/* dash buttons*/
+
+.dashButton {
+    display: inline-block;
+    background-color: rgb(227, 193, 0);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    margin: 20px;
+    padding: 12px 24px;
+    border-radius: 20px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.dashButton:hover {
+    background-color: #283d54;
+    color: white;
+    transition: background-color 0.2s ease-out, color 0.2s ease-out;
 }
