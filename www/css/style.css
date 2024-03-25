@@ -443,7 +443,7 @@ footer {
 }
 
 
-select {
+.filterandsearch select {
     padding: 8px;
     font-size: 18px;
     border-radius: 5px;
@@ -538,6 +538,7 @@ select {
 .inloggensul {
     list-style: none;
     margin: 5px;
+    
 }
 
 
@@ -549,17 +550,10 @@ select {
     flex-wrap: wrap;
 }
 
-.regisli {
-    margin: 10px 0;
-}
-
-.searchInput {
-    appearance: none;
-    padding: 10px 16px;
-    border-radius: 10px;
-    border: none;
-    margin-top: 6px;
-    font-size: 1.1em;
+.regisform li {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 .regisform label {
@@ -576,6 +570,16 @@ select {
     border: none;
     margin-top: 6px;
     font-size: 14px;
+}
+
+.regisform select {
+    appearance: none;
+    padding: 10px 16px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 6px;
+    font-size: 14px;
+    width: 190px;
 }
 
 .regisform button {

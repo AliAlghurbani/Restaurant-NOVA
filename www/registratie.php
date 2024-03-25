@@ -3,29 +3,50 @@
 
 <main class="regismain">
     <div class="regiscontainer">
-        <form class="regisform" method="post" action="verwerk_regis.php">
+        <form class="regisform" method="post" action="registeratie_process.php">
             <ul class="regisul">
-                <li class="regisli">
-                    <label for="txtVoornaam">Voornaam</label><br>
-                    <input type="text" id="txtVoornaam" name="txtVoornaam" placeholder="Voornaam" autofocus>
+                <li>
+                    <label for="voornaam">Voornaam</label>
+                    <input type="text" id="voornaam" name="voornaam" placeholder="voornaam">
                 </li>
-                <li class="regisli">
-                    <label for="txtAchternaam">Achternaam</label><br>
-                    <input type="text" id="txtAchternaam" name="txtAchternaam" placeholder="Achternaam">
+                <li>
+                    <label for="achternaam">Achternaam</label>
+                    <input type="text" id="achternaam" name="achternaam" placeholder="achternaam">
                 </li>
-                <li class="regisli">
-                    <label for="txtPostcode">Postcode</label><br>
-                    <input type="text" id="txtPostcode" name="txtPostcode" placeholder="Postcode">
+                <li>
+                    <label for="email">Email</label>
+                    <input type="text" id="email" name="email" placeholder="email">
                 </li>
-                <li class="regisli">
-                    <label for="txtEmail">Email</label><br>
-                    <input type="text" id="txtEmail" name="txtEmail" placeholder="Email" autofocus>
+                <li>
+                    <label for="password">Password</label>
+                    <input type="text" id="password" name="password" placeholder="password">
                 </li>
-                <li class="regisli">
-                    <label for="txtPassword">Password</label><br>
-                    <input type="text" id="txtPassword" name="txtPassword" placeholder="Password">
+                <li>
+                    <label for="plaats">Plaats</label>
+                    <input type="text" id="plaats" name="plaats" placeholder="plaats">
                 </li>
-                <li class="regisli">
+                <li>
+                    <label for="postcode">Postcode</label>
+                    <input type="text" id="postcode" name="postcode" placeholder="postcode">
+                </li>
+                <li>
+                    <label for="straatnaam">Straatnaam</label>
+                    <input type="text" id="straatnaam" name="straatnaam" placeholder="straatnaam">
+                </li>
+                <li>
+                    <label for="huisnummer">Huisnummer</label>
+                    <input type="text" id="huisnummer" name="huisnummer" placeholder="huisnummer">
+                </li>
+                <li>
+                    <label for="rol">Rol</label>
+                    <select class="roledm" id="rol" name="rol">
+                        <option value="">Selecteer Rol</option>
+                        <option value="manager">Manager</option>
+                        <option value="medewerker">Medewerker</option>
+                        <option value="klant">Klant</option>
+                    </select>
+                </li>
+                <li>
                     <button type="submit"> RIGESTER </button>
                 </li>
             </ul>

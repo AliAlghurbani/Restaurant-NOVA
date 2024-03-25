@@ -2,24 +2,24 @@
 
 <main class="regismain">
     <div class="regiscontainer">
-        <form class="regisform" method="post" action="verwerk_inloggen.php">
+        <form class="regisform" method="post" action="inloggen-process.php">
             <ul class="inloggensul">
                 <?php if (isset($_GET['error'])) { ?>
                     <p class="error"><?php echo $_GET['error']; ?></p>
                 <?php } ?>
-                <li class="regisli">
-                    <label for="txtEmail">Email</label><br>
-                    <input type="text" id="txtEmail" name="email" placeholder="Email" autofocus>
+                <li>
+                    <label for="email">Email</label>
+                    <input type="text" id="email" name="email" placeholder="email">
                 </li>
-                <li class="regisli">
-                    <label for="txtPassword">Password</label><br>
-                    <input type="password" id="txtPassword" name="password" placeholder="Password">
+                <li>
+                    <label for="password">Password</label>
+                    <input type="text" id="password" name="password" placeholder="password">
                 </li>
                 <li>
                     <a href="registratie.php" class="regislink"> I DON'T HAVE AN ACCOUNT!</a>
                 </li>
-                <li class="regisli">
-                    <button type="submit"> LOG IN </button>
+                <li>
+                    <button type="submit"> RIGESTER </button>
                 </li>
             </ul>
         </form>
