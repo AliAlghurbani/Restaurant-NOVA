@@ -5,20 +5,24 @@ session_start();
 require 'database.php';
 
 
-if (!isset($_SESSION['gebruiker_id'])) {
-    header("location: inloggen.php?error=Cant register you!");
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+    header($_SERVER["SERVER_PROTOCOL"] . " 405 Method Not Allowed", true, 405);
+    // echo "verkeerde request method gebruikt";
+    include '405.php';
     exit;
 }
 
 //check method
-if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-    header("location: inloggen.php?error=Cant register you!");
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+    header($_SERVER["SERVER_PROTOCOL"] . " 405 Method Not Allowed", true, 405);
+    // echo "verkeerde request method gebruikt";
+    include '405.php';
     exit;
 }
 
 // Check if all fields are filled in
-if (empty($_POST['voornaam']) || empty($_POST['achternaam']) || empty($_POST['email']) || empty($_POST['rol']) || empty($_POST['plaats']) || empty($_POST['postcode']) || empty($_POST['straatnaam']) || empty($_POST['huisnummer'])) {
-    echo "Please fill in all fields";
+if (empty($_POST['datum']) || empty($_POST['tijd']) || empty($_POST['personen']) || empty($_POST['telefoonnummer']) || empty($_POST['plaats'])) {
+    header("location: reserving.php?error= Please fill all fields!");
     exit;
 }
 

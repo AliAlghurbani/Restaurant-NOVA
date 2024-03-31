@@ -13,12 +13,11 @@
     <header>
         <a href="index.php"><img id="logopic" src="images/logo_2.png" alt="LOGO"></a>
         <nav>
-
             <ul class="ulnav">
                 <li class="linav"> <a href="index.php">HOME PAGE </a></li>
                 <li class="linav"> <a href="ireland.php">IRELAND </a></li>
                 <li class="linav"><a href="dishes.php"> DISHES </a></li>
-                <li class="linav"><a href="contact.php"> RESERVING </a></li>
+                <li class="linav"><a href="reserving.php"> RESERVING </a></li>
             </ul>
         </nav>
         <div class="divsocials">
@@ -30,6 +29,10 @@
             </ul>
         </div>
         <div>
-            <a href="inloggen.php" class="inloggenButton"> INLOGGEN </a>
+            <?php if (isset($_SESSION['gebruiker_id'])) : ?>
+                <a href="logout.php" class="uitloggenButton"> UITLOGGEN </a>
+            <?php else : ?>
+                <a href="inloggen.php" class="inloggenButton"> INLOGGEN </a>
+            <?php endif; ?>
         </div>
     </header>

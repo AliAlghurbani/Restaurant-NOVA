@@ -1,4 +1,5 @@
 <?php
+require 'database.php';
 
 if (isset($_POST['submit'])) {
     if (isset($_POST['email']) && isset($_POST['password'])) {
@@ -6,9 +7,7 @@ if (isset($_POST['submit'])) {
             $email = $_POST['email'];
             $password = $_POST['password'];
 
-            require 'database.php';
-
-            $stmt = $conn->prepare("SELECT * FROM users WHERE email= :email ");
+            $stmt = $conn->prepare("SELECT * FROM gebruiker WHERE email= :email ");
             $stmt->bindParam(":email", $email);
             $stmt->execute();
 
@@ -27,14 +26,15 @@ if (isset($_POST['submit'])) {
                 // set the resulting array to associative
                 $dbuser = $stmt->fetch(PDO::FETCH_ASSOC);
 
-                if ($dbuser['password'] == $passwordForm) {
+                if (password_verify($password, $dbuser['password'])) {
 
                     session_start();
-                    $_SESSION['user_id']    = $dbuser['id'];
+                    $_SESSION['gebruiker_id']    = $dbuser['gebruiker_id'];
                     $_SESSION['email']      = $dbuser['email'];
                     $_SESSION['voornaam']  = $dbuser['voornaam'];
                     $_SESSION['achternaam']   = $dbuser['achternaam'];
-                    $_SESSION['rol']       = $dbuser['rol'];
+                    $_SESSION['rol']     = $dbuser['rol'];
+
 
                     header("Location: dashboard.php");
                     exit;
@@ -43,9 +43,11 @@ if (isset($_POST['submit'])) {
                     exit();
                 }
             } else {
-                header("location: inloggen.php?error=Incorrect email or password ");
+                header("location: inloggen.php?error=This user doesnt exist ");
                 exit();
             }
         }
     }
+} else {
+    header("location: inloggen.php?error=Cant sign in!");
 }

@@ -74,7 +74,7 @@ nav {
     justify-content: space-between;
 }
 
-/* inloggen button */
+/* inloggen & uitloggen buttons */
 .inloggenButton {
     display: inline-block;
     background-color: #13482E;
@@ -91,6 +91,25 @@ nav {
 
 .inloggenButton:hover {
     color: #138a54;
+    transition: 0.2s ease-out, color 0.2s ease-out;
+}
+
+.uitloggenButton {
+    display: inline-block;
+    background-color: #955d02;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    margin: 25px;
+    padding: 12px 24px;
+    border-radius: 20px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.uitloggenButton:hover {
+    color: #F0980E;
     transition: 0.2s ease-out, color 0.2s ease-out;
 }
 
@@ -538,7 +557,7 @@ footer {
 .inloggensul {
     list-style: none;
     margin: 5px;
-    
+
 }
 
 
@@ -619,7 +638,7 @@ footer {
 /*dashboard*/
 
 .dashbody {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.342), rgba(0, 0, 0, 0.342)), url(hompage.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.342), rgba(0, 0, 0, 0.342)), url(mainpage.jpg);
     background-position: center;
     background-size: cover;
     height: 41em;

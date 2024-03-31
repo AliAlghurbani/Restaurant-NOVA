@@ -2,7 +2,7 @@
 
 <main class="regismain">
     <div class="regiscontainer">
-        <form class="regisform" method="post" action="inloggen-process.php">
+        <form class="regisform" method="post" action="inloggen_process.php">
             <ul class="inloggensul">
                 <?php if (isset($_GET['error'])) { ?>
                     <p class="error"><?php echo $_GET['error']; ?></p>
@@ -19,7 +19,7 @@
                     <a href="registratie.php" class="regislink"> I DON'T HAVE AN ACCOUNT!</a>
                 </li>
                 <li>
-                    <button type="submit"> RIGESTER </button>
+                    <button name="submit">Inloggen</button>
                 </li>
             </ul>
         </form>

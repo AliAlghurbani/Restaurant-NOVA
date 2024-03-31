@@ -20,3 +20,7 @@
     </ul>
     <img id="logofooter" src="images/logo_2.png" alt="img">
 </footer>
+
+</body>
+
+</html>
