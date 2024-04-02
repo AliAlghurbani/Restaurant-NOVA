@@ -4,15 +4,11 @@ session_start();
 
 require 'database.php';
 
-
-if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-    header($_SERVER["SERVER_PROTOCOL"] . " 405 Method Not Allowed", true, 405);
-    // echo "verkeerde request method gebruikt";
-    include '405.php';
+if (!isset($_SESSION['gebruiker_id'])) {
+    header("location: inloggen.php?error=You're not logged in yet");
     exit;
 }
 
-//check method
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     header($_SERVER["SERVER_PROTOCOL"] . " 405 Method Not Allowed", true, 405);
     // echo "verkeerde request method gebruikt";
@@ -21,68 +17,42 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
 }
 
 // Check if all fields are filled in
-if (empty($_POST['datum']) || empty($_POST['tijd']) || empty($_POST['personen']) || empty($_POST['telefoonnummer']) || empty($_POST['plaats'])) {
+if (empty($_POST['datum']) || empty($_POST['tijd']) || empty($_POST['personen']) || empty($_POST['telefoonnummer'])) {
     header("location: reserving.php?error= Please fill all fields!");
     exit;
 }
 
-$email = $_POST['email'];
-$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-$voornaam = $_POST['voornaam'];
-$achternaam = $_POST['achternaam'];
-$rol = $_POST['rol'];
-$plaats = $_POST['plaats'];
-$postcode = $_POST['postcode'];
-$straat = $_POST['straatnaam'];
-$huisnummer = $_POST['huisnummer'];
+$datum = $_POST['datum'];
+$tijd = $_POST['tijd'];
+$personen = $_POST['personen'];
+$telefoonnummer = $_POST['telefoonnummer'];
 
 
-// Check if email already exists
-$sql = "SELECT * FROM gebruiker WHERE email = :email";
+// Check if reserving already exists
+$sql = "SELECT * FROM reserving WHERE tijd = :tijd";
 $stmt = $conn->prepare($sql);
-$stmt->bindParam(':email', $email);
+$stmt->bindParam(':tijd', $tijd);
 $stmt->execute();
-$existingUser = $stmt->fetch(PDO::FETCH_ASSOC);
+$existingReserving = $stmt->fetch(PDO::FETCH_ASSOC);
 
-if ($existingUser) {
-    // User already exists, redirect back with message
-    $_SESSION['message'] = "Gebruiker met dit e-mailadres bestaat al. Kies alstublieft een ander e-mailadres.";
-    header("Location: registratie.php");
+if ($existingReserving) {
+    header("location: reserving.php?error= This time is already full!");
     exit;
 }
 
 
-
-
-
 // Insert the address record
-$sql = "INSERT INTO adres (plaats, postcode, straatnaam, huisnummer) VALUES (:plaats, :postcode, :straatnaam, :huisnummer)";
+$sql = "INSERT INTO reserving (gebruiker_id, datum, tijd, aantal_personen, telefoonnummer) VALUES (:gebruiker_id, :datum, :tijd, :personen, :telefoonnummer)";
 $stmt = $conn->prepare($sql);
-$stmt->bindParam(":plaats", $plaats);
-$stmt->bindParam(":postcode", $postcode);
-$stmt->bindParam(":straatnaam", $straat);
-$stmt->bindParam(":huisnummer", $huisnummer);
+$stmt->bindParam(":gebruiker_id", $_SESSION['gebruiker_id']);
+$stmt->bindParam(":datum", $datum);
+$stmt->bindParam(":tijd", $tijd);
+$stmt->bindParam(":personen", $personen);
+$stmt->bindParam(":telefoonnummer", $telefoonnummer);
 if ($stmt->execute()) {
-    $adres_id = $conn->lastInsertId();
-
-    // Insert the user record
-    $sql = "INSERT INTO gebruiker (voornaam, achternaam, email, password, rol, adres_id) VALUES (:voornaam, :achternaam, :email, :password, :rol, :adres_id)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':voornaam', $voornaam);
-    $stmt->bindParam(':achternaam', $achternaam);
-    $stmt->bindParam(':email', $email);
-    $stmt->bindParam(':password', $password);
-    $stmt->bindParam(':rol', $rol);
-    $stmt->bindParam(':adres_id', $adres_id);
-
-    if ($stmt->execute()) {
-        header("Location: inloggen.php");
-        exit;
-    } else {
-        echo "Error updating user with address ID.";
-        exit;
-    }
+    header("location: reserving.php?true=Reservation made!");
+    exit;
 } else {
-    echo "Error inserting address.";
+    header("location: reserving.php?error=Reservation couldn't be made!");
     exit;
 }

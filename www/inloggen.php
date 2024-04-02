@@ -7,6 +7,9 @@
                 <?php if (isset($_GET['error'])) { ?>
                     <p class="error"><?php echo $_GET['error']; ?></p>
                 <?php } ?>
+                <?php if (isset($_GET['true'])) { ?>
+                    <p class="true"><?php echo $_GET['true']; ?></p>
+                <?php } ?>
                 <li>
                     <label for="email">Email</label>
                     <input type="text" id="email" name="email" placeholder="email">

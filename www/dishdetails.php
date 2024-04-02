@@ -1,6 +1,8 @@
 <?php
-require 'database.php';
 
+session_start();
+
+require 'database.php';
 if (isset($_GET['product_id'])) {
     $product_id = $_GET['product_id'];
     $sql = "SELECT * FROM product WHERE product_id = :product_id";

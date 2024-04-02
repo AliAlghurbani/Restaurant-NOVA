@@ -15,7 +15,7 @@ include 'header.php';
 
 
 <div class="dashbody">
-    <h1 class="dashheader"> <?php echo "HOLA¡ señor" . $_SESSION['voornaam']; ?> </h1>
+    <h1 class="dashheader"> <?php echo "Fáilte! Hello  " . $_SESSION['voornaam']; ?> </h1>
     <a href="index.php" class="dashButton"> HOME PAGE </a>
     <a href="logout.php" class="dashButton"> LOGOUT </a>
 </div>

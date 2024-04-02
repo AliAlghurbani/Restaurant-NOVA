@@ -18,6 +18,20 @@
                 <li class="linav"> <a href="ireland.php">IRELAND </a></li>
                 <li class="linav"><a href="dishes.php"> DISHES </a></li>
                 <li class="linav"><a href="reserving.php"> RESERVING </a></li>
+                <li class="linav">
+                    <a href="">USERS</a>
+                    <div class="linav-content">
+                        <a href="users_overzicht.php">INDEX</a>
+                        <a href="registratie.php">ADD USER</a>
+                    </div>
+                </li>
+                <li class="linav">
+                    <a href="">PRODUCTS</a>
+                    <div class="linav-content">
+                        <a href="tool_index.php">INDEX</a>
+                        <a href="tool_create.php">ADD DISH</a>
+                    </div>
+                </li>
             </ul>
         </nav>
         <div class="divsocials">
@@ -30,8 +44,10 @@
         </div>
         <div>
             <?php if (isset($_SESSION['gebruiker_id'])) : ?>
+                <a href="profile_main.php" class="inloggenButton"> PROFILE </a>
                 <a href="logout.php" class="uitloggenButton"> UITLOGGEN </a>
             <?php else : ?>
+                <a href="registratie.php" class="inloggenButton"> REGISTER </a>
                 <a href="inloggen.php" class="inloggenButton"> INLOGGEN </a>
             <?php endif; ?>
         </div>

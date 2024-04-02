@@ -1,13 +1,10 @@
 <?php
-
 session_start();
 
 require 'database.php';
-
-$sql = "SELECT * FROM product 
+$sql = " SELECT * FROM product 
 JOIN categorie ON product.categorie_id = categorie.categorie_id 
-JOIN menugang ON product.menu_id = menugang.menu_id;
-";
+JOIN menugang ON product.menu_id = menugang.menu_id ";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 $all_dishes = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -60,19 +57,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['filter_option'])) {
 }
 ?>
 
+<?php include 'header.php'; ?>
 
-<?php
-require 'header.php';
-?>
-
-<main class="main1">
-
-    <div class="titlecontainer">
-        <h1 class="title"> DISHES </h1>
-    </div>
-
-    <body class="users-overzichtBody">
-
+<main class="table">
+    <section class="table__body">
         <div class="filterandsearch">
             <form action="" method="get" class="filter">
                 <select id="filter_option" name="filter_option" class="dropdownMenu" style="margin-top: 4.5vh;">
@@ -91,36 +79,49 @@ require 'header.php';
                 <input class="searchInput" type="text" name="search" id="search" placeholder="Search your dish here">
                 <button class="FSbtn" type="submit" name="search_submit"><span class="material-symbols-outlined">travel_explore</span></button>
             </form>
-        </div>
 
-        <div class="recepten">
+            <a href="menugangcreate.php" class="inloggenButton">CREATE A MENU COURSE! </a>
 
-            <?php foreach ($all_dishes as $dish) : ?>
-                <div class="recept">
-                    <a href="dishdetails.php?product_id=<?php echo $dish['product_id'] ?>">
-                        <img class="receptImage" src="<?php echo $dish['afbeelding']; ?>" alt="dishfoto">
-                        <div class="menunaam">
-                            <p><?php echo $dish['naam'] ?></p>
-                        </div>
-                        <div class="receptDetails">
-                            <h1><a href="#" class="receptdetailstitle"> <?php echo $dish['product_naam'] ?> </a></h1>
-                            <div class="receptDetailsarticle">
-                                <?php echo $dish['beschrijving'] ?>
-                            </div>
-                            <p>&euro;<?php echo number_format($dish['verkoopprijs'] / 100, 2, ',', ''); ?></p>
-                            <p> READ MORE</p>
-                        </div>
-                    </a>
-                </div>
-            <?php endforeach; ?>
         </div>
+        <table>
+            <?php if (isset($_GET['error'])) { ?>
+                <p class="error"><?php echo $_GET['error']; ?></p>
+            <?php } ?>
+            <?php if (isset($_GET['true'])) { ?>
+                <p class="true"><?php echo $_GET['true']; ?></p>
+            <?php } ?>
+            <thead>
+                <tr>
+                    <th> Product Id </th>
+                    <th> Product naam </th>
+                    <th> Inkoopprijs </th>
+                    <th> Verkoopprijs </th>
+                    <th> Aantal voorrad </th>
+                    <th> Menugang </th>
+                    <th> Categorie </th>
+                    <th> Acties </th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($all_dishes as $dish) : ?>
+                    <tr>
+                        <td><?php echo $dish['product_id'] ?></td>
+                        <td><?php echo $dish['product_naam'] ?></td>
+                        <td><?php echo $dish['inkoopprijs'] ?></td>
+                        <td><?php echo $dish['verkoopprijs'] ?></td>
+                        <td><?php echo $dish['aantal_vorrad'] ?></td>
+                        <td><?php echo $dish['naam'] ?></td>
+                        <td><?php echo $dish['categorie'] ?></td>
+                        <td>
+                            <a href="dishdetails.php?product_id=<?php echo $dish['product_id'] ?>">Bekijk</a>
+                            <a href="users_edit.php?product_id=<?php echo $dish['product_id'] ?>">Wijzig</a>
+                            <a href="users_delete.php?product_id=<?php echo $dish['product_id'] ?>">Verwijder</a>
+                        </td>
+                    </tr>
+                <?php endforeach ?>
+            </tbody>
+        </table>
+    </section>
 </main>
 
-
-<?php
-include 'footer.php';
-?>
-
-</body>
-
-</html>
+<?php include 'footer.php'; ?>

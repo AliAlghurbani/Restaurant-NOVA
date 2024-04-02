@@ -1,5 +1,12 @@
-<?php include 'header.php'; ?>
+<?php
+session_start();
+if (!isset($_SESSION['gebruiker_id'])) {
+    header("location: inloggen.php?error=You're not logged in yet");
+    exit;
+}
+?>
 
+<?php include 'header.php'; ?>
 
 <main class="regismain">
     <div class="regiscontainer">
@@ -7,6 +14,9 @@
             <ul class="regisul">
                 <?php if (isset($_GET['error'])) { ?>
                     <p class="error"><?php echo $_GET['error']; ?></p>
+                <?php } ?>
+                <?php if (isset($_GET['true'])) { ?>
+                    <p class="true"><?php echo $_GET['true']; ?></p>
                 <?php } ?>
                 <li>
                     <label for="datum">Datum</label>
